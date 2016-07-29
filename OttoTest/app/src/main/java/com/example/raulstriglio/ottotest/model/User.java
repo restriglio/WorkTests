@@ -1,9 +1,11 @@
 package com.example.raulstriglio.ottotest.model;
 
+import java.io.Serializable;
+
 /**
  * Created by raul.striglio on 28/07/16.
  */
-public class User {
+public class User implements Serializable {
 
     private String name;
     private String last_name;
@@ -32,4 +34,5 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
 }

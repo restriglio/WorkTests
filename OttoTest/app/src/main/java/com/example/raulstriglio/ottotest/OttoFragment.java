@@ -11,9 +11,13 @@ import android.widget.TextView;
 
 import com.example.raulstriglio.ottotest.API.MyApi;
 import com.example.raulstriglio.ottotest.Events.CustomUserEvent;
+import com.example.raulstriglio.ottotest.Utilities.MyBus;
 import com.example.raulstriglio.ottotest.model.User;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by raul.striglio on 28/07/16.
@@ -31,7 +35,6 @@ public class OttoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragmentView = inflater.inflate(R.layout.otto_fragment, container, false);
-
         getData = (Button) fragmentView.findViewById(R.id.getData);
         id_name = (TextView) fragmentView.findViewById(R.id.id_name);
         id_lastname = (TextView) fragmentView.findViewById(R.id.id_lastname);
@@ -41,26 +44,47 @@ public class OttoFragment extends Fragment {
         getData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //get data
-                myApi.sedRequest(URL);
+                myApi.readFromFile();
             }
         });
-
         return fragmentView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if(!(getActivity() instanceof ICallback)){
+            throw new ClassCastException(getActivity().toString()
+                    + " must implement ICallback");
+        }
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        MyBus.getBus().register(this);
     }
 
     @Subscribe
     public void receiveData(CustomUserEvent event){
-        User u = event.getUser();
-
+        User u = event.getUsers().get(0);
         if(u != null) {
             id_name.setText(u.getName());
             id_lastname.setText(u.getLast_name());
         }
+
+        ((ICallback)getActivity()).initListActivity(event.getUsers());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MyBus.getBus().unregister(this);
+    }
+
+    public interface ICallback{
+        void initListActivity(ArrayList<User> userList);
     }
 }
