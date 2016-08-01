@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.raulstriglio.ottotest.API.MyApi;
+import com.example.raulstriglio.ottotest.API.MyApiComponent;
 import com.example.raulstriglio.ottotest.Events.CustomUserEvent;
 import com.example.raulstriglio.ottotest.Utilities.MyBus;
 import com.example.raulstriglio.ottotest.model.User;
@@ -19,17 +20,22 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by raul.striglio on 28/07/16.
  */
 public class OttoFragment extends Fragment {
 
     private final String URL = "https://raw.githubusercontent.com/restriglio/OttoTest/master/json/info.json";
-    View fragmentView;
-    Button getData;
-    MyApi myApi;
-    Bus bus;
-    TextView id_name, id_lastname;
+    private View fragmentView;
+    private Button getData;
+
+    @Inject MyApi myApi;
+    private MyApiComponent myApiComponent;
+
+    private Bus bus;
+    private TextView id_name, id_lastname;
 
     @Nullable
     @Override
@@ -39,7 +45,7 @@ public class OttoFragment extends Fragment {
         id_name = (TextView) fragmentView.findViewById(R.id.id_name);
         id_lastname = (TextView) fragmentView.findViewById(R.id.id_lastname);
 
-        myApi = MyApi.getInstanceMyApi(getContext());
+        //myApi = MyApi.getInstanceMyApi(getContext());
 
         getData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +54,12 @@ public class OttoFragment extends Fragment {
             }
         });
         return fragmentView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        ((OttoTestApplication) getActivity().getApplication()).getComponent().inject(getContext());
     }
 
     @Override

@@ -15,6 +15,8 @@ import com.example.raulstriglio.ottotest.model.User;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 /**
  * Created by raul.striglio on 28/07/16.
  */
