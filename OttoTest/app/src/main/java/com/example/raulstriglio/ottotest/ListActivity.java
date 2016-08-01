@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.raulstriglio.ottotest.Utilities.DividerItemDecoration;
 import com.example.raulstriglio.ottotest.model.User;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
  */
 public class ListActivity extends Activity {
 
+    private final String EXTRA_KEY = "userList";
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -34,10 +36,15 @@ public class ListActivity extends Activity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        myDataset = (ArrayList<User>) getIntent().getSerializableExtra("userList");
+        myDataset = (ArrayList<User>) getIntent().getSerializableExtra(EXTRA_KEY);
 
         // specify an adapter (see also next example)
         mAdapter = new MyAdapter(myDataset,getApplicationContext());
+
+        RecyclerView.ItemDecoration itemDecoration = new
+                DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+        mRecyclerView.addItemDecoration(itemDecoration);
+
         mRecyclerView.setAdapter(mAdapter);
 
 

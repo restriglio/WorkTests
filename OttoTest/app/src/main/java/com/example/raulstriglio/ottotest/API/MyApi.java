@@ -20,14 +20,21 @@ import java.util.ArrayList;
  */
 public class MyApi {
 
-    JsonParser jParser;
-    User user;
-    Context context;
-    static ArrayList<User> usersList;
+    private JsonParser jParser;
+    private Context context;
+    private ArrayList<User> usersList;
+    private static MyApi mMyApi;
 
-    public MyApi(Context context){
+    private MyApi(Context context){
         jParser = new JsonParser();
         this.context = context;
+    }
+
+    public static MyApi getInstanceMyApi(Context context){
+        if(mMyApi == null) {
+            mMyApi = new MyApi(context);
+        }
+        return mMyApi;
     }
 
     public void sendEvent(){

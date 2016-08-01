@@ -11,21 +11,22 @@ import java.io.InputStream;
  */
 public class FileReader {
 
+    static final String JSON_FILE_NAME = "info.json";
+    static final String IMG_FILE_NAME = "info.json";
+    static final String ENCODING = "UTF-8";
+
     public static String loadJSONFromAsset(Context context) {
+
         String json = null;
+
         try {
 
-            InputStream is =  context.getAssets().open("info.json");
-
+            InputStream is =  context.getAssets().open(JSON_FILE_NAME);
             int size = is.available();
-
             byte[] buffer = new byte[size];
-
             is.read(buffer);
-
             is.close();
-
-            json = new String(buffer, "UTF-8");
+            json = new String(buffer,ENCODING);
 
 
         } catch (IOException ex) {
@@ -39,10 +40,8 @@ public class FileReader {
     public static Drawable loadImageFromAssets(Context context){
         try {
             // get input stream
-            InputStream ims = context.getAssets().open("avatar.jpg");
-            // load image as Drawable
+            InputStream ims = context.getAssets().open(IMG_FILE_NAME);
             Drawable d = Drawable.createFromStream(ims, null);
-
             return d;
         }
         catch(IOException ex) {

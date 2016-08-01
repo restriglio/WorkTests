@@ -1,7 +1,6 @@
 package com.example.raulstriglio.ottotest.Utilities;
 
 import com.squareup.otto.Bus;
-import com.squareup.otto.ThreadEnforcer;
 
 /**
  * Created by raul.striglio on 28/07/16.

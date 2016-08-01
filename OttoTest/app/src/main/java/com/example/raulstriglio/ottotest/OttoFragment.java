@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class OttoFragment extends Fragment {
 
-    private String URL = "https://raw.githubusercontent.com/restriglio/OttoTest/master/json/info.json";
+    private final String URL = "https://raw.githubusercontent.com/restriglio/OttoTest/master/json/info.json";
     View fragmentView;
     Button getData;
     MyApi myApi;
@@ -39,7 +39,7 @@ public class OttoFragment extends Fragment {
         id_name = (TextView) fragmentView.findViewById(R.id.id_name);
         id_lastname = (TextView) fragmentView.findViewById(R.id.id_lastname);
 
-        myApi = new MyApi(getContext());
+        myApi = MyApi.getInstanceMyApi(getContext());
 
         getData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class OttoFragment extends Fragment {
 
         if(!(getActivity() instanceof ICallback)){
             throw new ClassCastException(getActivity().toString()
-                    + " must implement ICallback");
+                    + getResources().getString(R.string.OttoFragmentError));
         }
 
     }

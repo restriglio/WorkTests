@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private String IMAGE_PATH = "file:///android_asset/image.jpg";
+    private final String IMAGE_PATH = "file:///android_asset/image.jpg";
     private ArrayList<User> mDataset;
     private Context context;
 
@@ -64,25 +64,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final User name = mDataset.get(position);
         holder.txtHeader.setText(mDataset.get(position).getLast_name());
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
+                Toast.makeText(context,context.getString(R.string.click_string) + position,Toast.LENGTH_SHORT).show();
             }
         });
-        holder.txtFooter.setText("Nombre completo: " + mDataset.get(position).getName() + " " + mDataset.get(position).getLast_name());
+        holder.txtFooter.setText(context.getString(R.string.name_listItem) + mDataset.get(position).getName() + " " + mDataset.get(position).getLast_name());
         Picasso.with(context).load(IMAGE_PATH).placeholder(R.mipmap.ic_launcher)
                 .into(holder.icon, new com.squareup.picasso.Callback() {
             @Override
             public void onSuccess() {
-                Toast.makeText(context,"onSuccess",Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError() {
-                Toast.makeText(context,"error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,context.getString(R.string.picasso_error_msg),Toast.LENGTH_SHORT).show();
             }
         });
     }
