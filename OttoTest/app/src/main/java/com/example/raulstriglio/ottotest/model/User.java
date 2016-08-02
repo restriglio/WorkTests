@@ -11,7 +11,7 @@ public class User implements Serializable {
     private String last_name;
     private int age;
 
-    public User(String name, String last_name, int age){
+    public User(String name, String last_name, int age) {
         this.name = name;
         this.last_name = last_name;
         this.age = age;

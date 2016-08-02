@@ -48,6 +48,7 @@ public class ListActivity extends Activity {
 
         myDataset = (ArrayList<User>) getIntent().getSerializableExtra(EXTRA_KEY);
         listPerson = GuavaUtils.fluentExample(myDataset);
+        GuavaUtils.fluentTryFirst(myDataset);
 
         // specify an adapter (see also next example)
         mAdapter = new MyAdapter(listPerson, getApplicationContext());

@@ -11,7 +11,6 @@ import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -40,29 +39,21 @@ public class GuavaUtils {
         }
     };
 
-    public static List<Person> fluentExample(List users){
+    public static List<Person> fluentExample(List users) {
         ImmutableList immutableList = FluentIterable
                 .from(users)
                 .transform(userToPerson)
                 .filter(filterByName).toList();
-        ArrayList arrayList = new ArrayList<>(immutableList);
-        Log.d("GUAVA FluentIterable","justA: " + arrayList.size());
 
         return immutableList;
     }
 
-    public static List<Person> TransUserToPerson(List users){
-        Collection<Person> result = Collections2.transform(users, userToPerson);
+    public static void fluentTryFirst(List users) {
+        FluentIterable<Person> iterable = FluentIterable.from(users)
+                .transform(userToPerson)
+                .filter(filterByName);
 
-        Collection<Person> justA = Collections2.filter(result,filterByName);
-
-        Log.d("FILTERED COLLECTION","justA: " + justA.size());
-        Log.d("GUAVA COLLECTION","result: " + result.size());
-
-        if (result instanceof List)
-            return (List)result;
-        else
-            return new ArrayList(result);
+        Log.d("GUAVA FIRST MATCH","item " + iterable.firstMatch(filterByName).get());
 
     }
 
