@@ -16,18 +16,19 @@ public class JsonParser {
 
     Gson gson;
 
-    public JsonParser(){
+    public JsonParser() {
         gson = new GsonBuilder().serializeNulls().disableHtmlEscaping()
                 .serializeSpecialFloatingPointValues()
                 .create();
     }
 
-    public User getElement(ArrayList<User> aList, int index){
+    public User getElement(ArrayList<User> aList, int index) {
         return aList.get(index);
     }
 
-    public ArrayList<User> parseData(String jsonString){
-        Type listType = new TypeToken<ArrayList<User>>(){}.getType();
+    public ArrayList<User> parseData(String jsonString) {
+        Type listType = new TypeToken<ArrayList<User>>() {
+        }.getType();
         ArrayList<User> usersArray = gson.fromJson(jsonString.toString(), listType);
         return usersArray;
     }

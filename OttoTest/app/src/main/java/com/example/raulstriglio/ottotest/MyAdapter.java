@@ -69,22 +69,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.txtHeader.setText(mDataset.get(position).getLast_name());
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v){
-                Toast.makeText(context,context.getString(R.string.click_string) + position,Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                Toast.makeText(context, context.getString(R.string.click_string) + position, Toast.LENGTH_SHORT).show();
             }
         });
         holder.txtFooter.setText(context.getString(R.string.name_listItem) + mDataset.get(position).getName() + " " + mDataset.get(position).getLast_name());
         Picasso.with(context).load(IMAGE_PATH).placeholder(R.mipmap.ic_launcher)
                 .into(holder.icon, new com.squareup.picasso.Callback() {
-            @Override
-            public void onSuccess() {
-            }
+                    @Override
+                    public void onSuccess() {
+                    }
 
-            @Override
-            public void onError() {
-                Toast.makeText(context,context.getString(R.string.picasso_error_msg),Toast.LENGTH_SHORT).show();
-            }
-        });
+                    @Override
+                    public void onError() {
+                        Toast.makeText(context, context.getString(R.string.picasso_error_msg), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     // Return the size of your dataset (invoked by the layout manager)

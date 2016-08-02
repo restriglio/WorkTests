@@ -1,6 +1,6 @@
 package com.example.raulstriglio.ottotest.API;
 
-import android.content.Context;
+import com.example.raulstriglio.ottotest.OttoFragment;
 import javax.inject.Singleton;
 import dagger.Component;
 
@@ -8,7 +8,7 @@ import dagger.Component;
  * Created by raul.striglio on 01/08/16.
  */
 @Singleton
-@Component(modules = { MyApiModule.class })
+@Component(modules = {MyApiModule.class})
 public interface MyApiComponent {
-    void inject(Context context);
+    void inject(OttoFragment ottoFragment);
 }

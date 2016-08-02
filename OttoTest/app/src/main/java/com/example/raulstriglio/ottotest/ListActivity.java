@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class ListActivity extends Activity {
 
-    private final String EXTRA_KEY = "userList";
+    public static final String EXTRA_KEY = "userList";
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -39,7 +39,7 @@ public class ListActivity extends Activity {
         myDataset = (ArrayList<User>) getIntent().getSerializableExtra(EXTRA_KEY);
 
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(myDataset,getApplicationContext());
+        mAdapter = new MyAdapter(myDataset, getApplicationContext());
 
         RecyclerView.ItemDecoration itemDecoration = new
                 DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);

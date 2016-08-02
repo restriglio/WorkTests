@@ -13,11 +13,11 @@ public class CustomUserEvent {
 
     private ArrayList<User> users;
 
-    public CustomUserEvent(ArrayList<User> user){
+    public CustomUserEvent(ArrayList<User> user) {
         this.users = user;
     }
 
-    public ArrayList<User> getUsers(){
+    public ArrayList<User> getUsers() {
         return users;
     }
 

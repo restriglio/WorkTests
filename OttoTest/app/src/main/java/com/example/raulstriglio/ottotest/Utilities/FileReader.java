@@ -21,12 +21,12 @@ public class FileReader {
 
         try {
 
-            InputStream is =  context.getAssets().open(JSON_FILE_NAME);
+            InputStream is = context.getAssets().open(JSON_FILE_NAME);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer,ENCODING);
+            json = new String(buffer, ENCODING);
 
 
         } catch (IOException ex) {
@@ -37,14 +37,13 @@ public class FileReader {
 
     }
 
-    public static Drawable loadImageFromAssets(Context context){
+    public static Drawable loadImageFromAssets(Context context) {
         try {
             // get input stream
             InputStream ims = context.getAssets().open(IMG_FILE_NAME);
             Drawable d = Drawable.createFromStream(ims, null);
             return d;
-        }
-        catch(IOException ex) {
+        } catch (IOException ex) {
             return null;
         }
     }

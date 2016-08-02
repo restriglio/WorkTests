@@ -9,7 +9,8 @@ public class MyBus {
 
     private static final Bus mInstance = new Bus();
 
-    private MyBus() {}
+    private MyBus() {
+    }
 
     public static Bus getBus() {
         return mInstance;

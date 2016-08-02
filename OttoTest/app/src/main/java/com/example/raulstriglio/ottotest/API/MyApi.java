@@ -2,6 +2,7 @@ package com.example.raulstriglio.ottotest.API;
 
 import android.content.Context;
 import android.widget.Toast;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -23,34 +24,33 @@ import javax.inject.Inject;
 public class MyApi {
 
     private JsonParser jParser;
-    private Context context;
     private ArrayList<User> usersList;
     private static MyApi mMyApi;
+    private final Context context;
 
-    private MyApi(Context context){
+    @Inject
+    public MyApi(Context context) {
         jParser = new JsonParser();
         this.context = context;
     }
 
-    public static MyApi getInstanceMyApi(Context context){
-        if(mMyApi == null) {
+    public static MyApi getInstanceMyApi(Context context) {
+        if (mMyApi == null) {
             mMyApi = new MyApi(context);
         }
         return mMyApi;
     }
 
-    public void sendEvent(){
+    public void sendEvent() {
         MyBus.getBus().post(new CustomUserEvent(usersList));
     }
 
-    public void readFromFile(){
+    public void readFromFile() {
         usersList = jParser.parseData(FileReader.loadJSONFromAsset(context));
-        if(usersList.size() > 0) {
-            sendEvent();
-        }
+        sendEvent();
     }
 
-    public void sedRequest(String url){
+    public void sedRequest(String url) {
 
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(url,
@@ -58,21 +58,19 @@ public class MyApi {
                     @Override
                     public void onResponse(String response) {
                         usersList = jParser.parseData(response);
-                        if(usersList.size() > 0) {
+                        if (usersList.size() > 0) {
                             sendEvent();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context,"Error: " + error,Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Error: " + error, Toast.LENGTH_SHORT).show();
             }
         });
 
         queue.add(stringRequest);
     }
-
-
 
 
 }

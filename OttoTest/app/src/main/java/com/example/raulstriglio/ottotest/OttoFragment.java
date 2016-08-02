@@ -31,10 +31,8 @@ public class OttoFragment extends Fragment {
     private View fragmentView;
     private Button getData;
 
-    @Inject MyApi myApi;
-    private MyApiComponent myApiComponent;
-
-    private Bus bus;
+    @Inject
+    protected MyApi myApi;
     private TextView id_name, id_lastname;
 
     @Nullable
@@ -44,9 +42,6 @@ public class OttoFragment extends Fragment {
         getData = (Button) fragmentView.findViewById(R.id.getData);
         id_name = (TextView) fragmentView.findViewById(R.id.id_name);
         id_lastname = (TextView) fragmentView.findViewById(R.id.id_lastname);
-
-        //myApi = MyApi.getInstanceMyApi(getContext());
-
         getData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,16 +52,16 @@ public class OttoFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        ((OttoTestApplication) getActivity().getApplication()).getComponent().inject(getContext());
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((OttoTestApplication) getActivity().getApplication()).getMyApiComponent().inject(this);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if(!(getActivity() instanceof ICallback)){
+        if (!(getActivity() instanceof ICallback)) {
             throw new ClassCastException(getActivity().toString()
                     + getResources().getString(R.string.OttoFragmentError));
         }
@@ -80,14 +75,22 @@ public class OttoFragment extends Fragment {
     }
 
     @Subscribe
-    public void receiveData(CustomUserEvent event){
-        User u = event.getUsers().get(0);
-        if(u != null) {
-            id_name.setText(u.getName());
-            id_lastname.setText(u.getLast_name());
-        }
+    public void receiveData(CustomUserEvent event) {
 
-        ((ICallback)getActivity()).initListActivity(event.getUsers());
+        if (event.getUsers() != null) {
+
+            if (event.getUsers().size() > 0) {
+                User u = event.getUsers().get(0);
+                if (u != null) {
+                    id_name.setText(u.getName());
+                    id_lastname.setText(u.getLast_name());
+                }
+            } else {
+                id_name.setText(getString(R.string.empty_item));
+                id_lastname.setText(getString(R.string.empty_item));
+            }
+        }
+        ((ICallback) getActivity()).initListActivity(event.getUsers());
     }
 
     @Override
@@ -96,7 +99,7 @@ public class OttoFragment extends Fragment {
         MyBus.getBus().unregister(this);
     }
 
-    public interface ICallback{
+    public interface ICallback {
         void initListActivity(ArrayList<User> userList);
     }
 }

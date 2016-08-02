@@ -20,7 +20,7 @@ public class OttoMainActivity extends AppCompatActivity implements OttoFragment.
         setContentView(R.layout.activity_otto_main);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.add(R.id.FrameID,ottoFragment);
+        ft.add(R.id.FrameID, ottoFragment);
         ft.addToBackStack(null);
         ft.commit();
 
@@ -28,8 +28,8 @@ public class OttoMainActivity extends AppCompatActivity implements OttoFragment.
 
     @Override
     public void initListActivity(ArrayList<User> userList) {
-        Intent intent = new Intent(getApplicationContext(),ListActivity.class);
-        intent.putExtra("userList",userList);
+        Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+        intent.putExtra(ListActivity.EXTRA_KEY, userList);
         startActivity(intent);
     }
 }
