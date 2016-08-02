@@ -1,6 +1,7 @@
 package com.example.raulstriglio.ottotest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -12,13 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.raulstriglio.ottotest.model.Person;
 import com.example.raulstriglio.ottotest.model.User;
 import com.squareup.picasso.Picasso;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private final String IMAGE_PATH = "file:///android_asset/image.jpg";
-    private ArrayList<User> mDataset;
+    private List<Person> mDataset;
     private Context context;
 
     // Provide a reference to the views for each data item
@@ -37,7 +39,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
     }
 
-    public void add(int position, User item) {
+    public void add(int position, Person item) {
         mDataset.add(position, item);
         notifyItemInserted(position);
     }
@@ -49,7 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(ArrayList<User> myDataset, Context context) {
+    public MyAdapter(List<Person> myDataset, Context context) {
         mDataset = myDataset;
         this.context = context;
     }
@@ -65,15 +67,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        final User name = mDataset.get(position);
-        holder.txtHeader.setText(mDataset.get(position).getLast_name());
+        final Person name = mDataset.get(position);
+        holder.txtHeader.setText(mDataset.get(position).getLastname());
         holder.txtHeader.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, context.getString(R.string.click_string) + position, Toast.LENGTH_SHORT).show();
             }
         });
-        holder.txtFooter.setText(context.getString(R.string.name_listItem) + mDataset.get(position).getName() + " " + mDataset.get(position).getLast_name());
+        holder.txtFooter.setText(context.getString(R.string.name_listItem) + mDataset.get(position).getName() + " " + mDataset.get(position).getLastname());
         Picasso.with(context).load(IMAGE_PATH).placeholder(R.mipmap.ic_launcher)
                 .into(holder.icon, new com.squareup.picasso.Callback() {
                     @Override
