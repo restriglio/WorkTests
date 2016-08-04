@@ -1,93 +1,111 @@
 [
   {
     "name" : "Ross",
-    "last_name" : "Geller",
-    "age" : 51
+    "lastname" : "Geller",
+    "age" : 51,
+    "type": 1
   },
   {
     "name" : "Joey",
-    "last_name" : "Tribiani",
-    "age" : 51
+    "lastname" : "Tribiani",
+    "age" : 51,
+    "type": 2
   },
   {
     "name" : "Eddie",
-    "last_name" : "Vedder",
-    "age" : 51
+    "lastname" : "Vedder",
+    "age" : 51,
+    "type": 1
   },
   {
     "name" : "Omar",
-    "last_name" : "Rodríguez-López",
-    "age" : 40
+    "lastname" : "Rodríguez-López",
+    "age" : 40,
+    "type": 1
   },
   {
     "name" : "James",
-    "last_name" : "Hetfield",
-    "age" : 52
+    "lastname" : "Hetfield",
+    "age" : 50,
+    "type": 0
   },
   {
     "name" : "Jimmy",
-    "last_name" : "Page",
-    "age" : 22
+    "lastname" : "Page",
+    "age" : 23,
+    "type": 1
   },
   {
     "name" : "Rulo",
-    "last_name" : "Snow",
-    "age" : 33
+    "lastname" : "Snow",
+    "age" : 33,
+    "type": 2
   },
   {
     "name" : "Jimmy",
-    "last_name" : "Snow",
-    "age" : 45
+    "lastname" : "Snow",
+    "age" : 45,
+    "type": 0
   },
   {
     "name" : "Cuqui",
-    "last_name" : "Page",
-    "age" : 14
+    "lastname" : "Page",
+    "age" : 14,
+    "type": 1
   },
   {
     "name" : "Robert",
-    "last_name" : "Pires",
-    "age" : 34
+    "lastname" : "Pires",
+    "age" : 34,
+    "type": 2
   },
   {
     "name" : "James",
-    "last_name" : "Rodriguez",
-    "age" : 23
+    "lastname" : "Rodriguez",
+    "age" : 23,
+    "type": 0
   },
   {
     "name" : "Kun",
-    "last_name" : "Aguero",
-    "age" : 72
+    "lastname" : "Aguero",
+    "age" : 70,
+    "type": 1
   },
   {
     "name" : "Lio",
-    "last_name" : "Messi",
-    "age" : 28
+    "lastname" : "Messi",
+    "age" : 28,
+    "type": 0
   },
   {
     "name" : "Tierry",
-    "last_name" : "Henry",
-    "age" : 29
+    "lastname" : "Henry",
+    "age" : 29,
+    "type": 1
   },
   {
     "name" : "Julia",
-    "last_name" : "Funn",
-    "age" : 16
+    "lastname" : "Funn",
+    "age" : 16,
+    "type": 2
   },
   {
     "name" : "Carlitos",
-    "last_name" : "elRey",
-    "age" : 65
+    "lastname" : "elRey",
+    "age" : 65,
+    "type": 1
   },
   {
     "name" : "Name",
-    "last_name" : "lName",
-    "age" : 15
+    "lastname" : "lName",
+    "age" : 15,
+    "type": 2
   },
   {
     "name" : "Tom",
-    "last_name" : "Misaki",
-    "age" : 16
+    "lastname" : "Misaki",
+    "age" : 16,
+    "type": 1
   }
 
 

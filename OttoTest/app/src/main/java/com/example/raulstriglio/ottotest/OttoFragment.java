@@ -10,15 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.raulstriglio.ottotest.API.MyApi;
-import com.example.raulstriglio.ottotest.API.MyApiComponent;
 import com.example.raulstriglio.ottotest.Events.CustomUserEvent;
 import com.example.raulstriglio.ottotest.Utilities.MyBus;
 import com.example.raulstriglio.ottotest.model.User;
-import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -83,7 +80,7 @@ public class OttoFragment extends Fragment {
                 User u = event.getUsers().get(0);
                 if (u != null) {
                     id_name.setText(u.getName());
-                    id_lastname.setText(u.getLast_name());
+                    id_lastname.setText(u.getLastname());
                 }
             } else {
                 id_name.setText(getString(R.string.empty_item));
