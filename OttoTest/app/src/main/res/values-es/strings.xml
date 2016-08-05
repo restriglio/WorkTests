@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prueba Otto</string>
+
+    <string name="click_string">Posición seleccionada: </string>
+    <string name="OttoFragmentError">Debe implementar ICallback</string>
+    <string name="name_listItem">Nombre completo: </string>
+    <string name="picasso_error_msg">Error</string>
+    <string name="empty_item">Vacío</string>
+
+    <string name="name_label">Nombre:</string>
+    <string name="lastname_label">Apellido:</string>
+
+</resources>
