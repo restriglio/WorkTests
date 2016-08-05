@@ -24,7 +24,6 @@ public class ListActivity extends Activity {
     private MyAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<User> myDataset;
-    private EditText inputFiled;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,6 @@ public class ListActivity extends Activity {
 
         setContentView(R.layout.detail_list);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        inputFiled = (EditText) findViewById(R.id.inputFiled);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
