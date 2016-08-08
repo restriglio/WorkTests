@@ -36,16 +36,4 @@ public class FileReader {
         return json;
 
     }
-
-    public static Drawable loadImageFromAssets(Context context) {
-        try {
-            // get input stream
-            InputStream ims = context.getAssets().open(IMG_FILE_NAME);
-            Drawable d = Drawable.createFromStream(ims, null);
-            return d;
-        } catch (IOException ex) {
-            return null;
-        }
-    }
-
 }

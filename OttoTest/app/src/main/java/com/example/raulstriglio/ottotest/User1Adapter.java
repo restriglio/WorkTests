@@ -52,7 +52,8 @@ public class User1Adapter implements AdapterDelegate<List<User>> {
 
             }
         });
-        u1Holder.txtFooter.setText(context.getString(R.string.name_listItem) + user.getName() + " " + user.getLastname());
+
+        u1Holder.txtFooter.setText(String.format(context.getResources().getString(R.string.name_listItem), user.getName(), user.getLastname()));
         Picasso.with(context).load(IMAGE_PATH).placeholder(R.mipmap.ic_launcher)
                 .into(u1Holder.icon, new com.squareup.picasso.Callback() {
                     @Override

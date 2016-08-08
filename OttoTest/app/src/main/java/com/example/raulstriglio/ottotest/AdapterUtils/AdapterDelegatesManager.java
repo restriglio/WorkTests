@@ -15,7 +15,7 @@ public class AdapterDelegatesManager<T> {
 
     private SparseArrayCompat<AdapterDelegate<T>> listDelegates;
 
-    public AdapterDelegatesManager(){
+    public AdapterDelegatesManager() {
         listDelegates = new SparseArrayCompat();
     }
 
@@ -26,8 +26,9 @@ public class AdapterDelegatesManager<T> {
 
     public void removeDelegate(@NonNull AdapterDelegate<T> delegate) {
         int index = listDelegates.indexOfValue(delegate);
-        if (index >= 0)
+        if (index >= 0) {
             listDelegates.removeAt(index);
+        }
     }
 
     public int getItemViewType(@NonNull T items, int position) {

@@ -30,15 +30,16 @@ public class OttoFragment extends Fragment {
 
     @Inject
     protected MyApi myApi;
-    private TextView id_name, id_lastname;
+    private TextView idName;
+    private TextView idLastname;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragmentView = inflater.inflate(R.layout.otto_fragment, container, false);
         getData = (Button) fragmentView.findViewById(R.id.getData);
-        id_name = (TextView) fragmentView.findViewById(R.id.id_name);
-        id_lastname = (TextView) fragmentView.findViewById(R.id.id_lastname);
+        idName = (TextView) fragmentView.findViewById(R.id.id_name);
+        idLastname = (TextView) fragmentView.findViewById(R.id.id_lastname);
         getData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +61,7 @@ public class OttoFragment extends Fragment {
 
         if (!(getActivity() instanceof ICallback)) {
             throw new ClassCastException(getActivity().toString()
-                    + getResources().getString(R.string.OttoFragmentError));
+                    + "must implement ICallback");
         }
 
     }
@@ -79,12 +80,12 @@ public class OttoFragment extends Fragment {
             if (event.getUsers().size() > 0) {
                 User u = event.getUsers().get(0);
                 if (u != null) {
-                    id_name.setText(u.getName());
-                    id_lastname.setText(u.getLastname());
+                    idName.setText(u.getName());
+                    idLastname.setText(u.getLastname());
                 }
             } else {
-                id_name.setText(getString(R.string.empty_item));
-                id_lastname.setText(getString(R.string.empty_item));
+                idName.setText(getString(R.string.empty_item));
+                idLastname.setText(getString(R.string.empty_item));
             }
         }
         ((ICallback) getActivity()).initListActivity(event.getUsers());

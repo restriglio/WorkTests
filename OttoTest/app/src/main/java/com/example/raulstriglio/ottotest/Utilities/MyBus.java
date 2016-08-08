@@ -7,13 +7,13 @@ import com.squareup.otto.Bus;
  */
 public class MyBus {
 
-    private static final Bus mInstance = new Bus();
+    private static final Bus Instance = new Bus();
 
     private MyBus() {
     }
 
     public static Bus getBus() {
-        return mInstance;
+        return Instance;
     }
 
 }

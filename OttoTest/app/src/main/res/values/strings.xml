@@ -3,11 +3,13 @@
 
     <string name="click_string">position clicked: </string>
     <string name="OttoFragmentError">must implement ICallback</string>
-    <string name="name_listItem">Full name: </string>
     <string name="picasso_error_msg">Error</string>
     <string name="empty_item">empty</string>
 
     <string name="name_label">Name:</string>
     <string name="lastname_label">Lastname:</string>
+    <string name="emptySpace"> </string>
+
+    <string name="name_listItem">Full name: %1$s %2$s</string>
 
 </resources>
