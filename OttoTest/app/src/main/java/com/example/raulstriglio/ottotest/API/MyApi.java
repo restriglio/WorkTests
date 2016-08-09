@@ -9,6 +9,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.raulstriglio.ottotest.Events.CustomUserEvent;
+import com.example.raulstriglio.ottotest.OttoTestApplication;
 import com.example.raulstriglio.ottotest.Utilities.JsonParser;
 import com.example.raulstriglio.ottotest.Utilities.MyBus;
 import com.example.raulstriglio.ottotest.Utilities.FileReader;
@@ -23,22 +24,17 @@ import javax.inject.Inject;
  */
 public class MyApi {
 
-    private JsonParser jParser;
+    @Inject
+    protected JsonParser jParser;
     private ArrayList<User> usersList;
     private static MyApi mMyApi;
     private final Context context;
 
-    @Inject
     public MyApi(Context context) {
-        jParser = new JsonParser();
+        //((OttoTestApplication) context.getApplicationContext()).getMyApiComponent().injectParser(this);
         this.context = context;
-    }
-
-    public static MyApi getInstanceMyApi(Context context) {
-        if (mMyApi == null) {
-            mMyApi = new MyApi(context);
-        }
-        return mMyApi;
+        MyApiComponent component = ((OttoTestApplication) context.getApplicationContext()).getMyApiComponent();
+        jParser = component.jsonParser();
     }
 
     public void sendEvent() {

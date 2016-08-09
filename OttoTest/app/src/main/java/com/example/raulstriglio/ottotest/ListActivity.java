@@ -5,14 +5,20 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.widget.EditText;
 
-import com.example.raulstriglio.ottotest.Utilities.DividerItemDecoration;
+import com.example.raulstriglio.ottotest.API.DaggerMyApiComponent;
+import com.example.raulstriglio.ottotest.API.MyApiComponent;
+import com.example.raulstriglio.ottotest.API.MyApiModule;
+import com.example.raulstriglio.ottotest.Utilities.DaggerDividerItemDecorationComponent;
+import com.example.raulstriglio.ottotest.Utilities.DividerItemDecorationComponent;
+import com.example.raulstriglio.ottotest.Utilities.DividerItemDecorationModule;
 import com.example.raulstriglio.ottotest.model.UserProvider;
 import com.example.raulstriglio.ottotest.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Created by raul.striglio on 29/07/16.
@@ -24,6 +30,8 @@ public class ListActivity extends Activity {
     private MyAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<User> myDataset;
+    @Inject
+    protected RecyclerView.ItemDecoration itemDecoration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +51,11 @@ public class ListActivity extends Activity {
         myDataset = (ArrayList<User>) getIntent().getSerializableExtra(EXTRA_KEY);
         myDataset.addAll(UserProvider.GetData());
 
-        // specify an adapter (see also next example)
         mAdapter = new MyAdapter(myDataset, getApplicationContext());
-        RecyclerView.ItemDecoration itemDecoration = new
-                DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+        itemDecoration = DaggerDividerItemDecorationComponent
+                .builder().dividerItemDecorationModule(new DividerItemDecorationModule(getApplicationContext()))
+                .build().dividerItemDecoration();
+
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setAdapter(mAdapter);
     }

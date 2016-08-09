@@ -29,7 +29,7 @@ public class OttoFragment extends Fragment {
     private Button getData;
 
     @Inject
-    protected MyApi myApi;
+    MyApi myApi;
     private TextView idName;
     private TextView idLastname;
 
