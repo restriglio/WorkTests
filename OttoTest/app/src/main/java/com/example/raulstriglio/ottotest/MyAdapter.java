@@ -4,9 +4,13 @@ import java.util.List;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.raulstriglio.ottotest.AdapterUtils.AdapterDelegate;
 import com.example.raulstriglio.ottotest.AdapterUtils.AdapterDelegatesManager;
+import com.example.raulstriglio.ottotest.Fragments.OttoFragmentList;
 import com.example.raulstriglio.ottotest.model.User;
 
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -14,20 +18,26 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private AdapterDelegatesManager<List<User>> adaptersManager;
     private List<User> mDataset;
     private Context context;
+<<<<<<< Updated upstream
+=======
+    OttoFragmentList.CallbackToFragmentList callbackToFragmentList;
+>>>>>>> Stashed changes
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<User> myDataset, Context context) {
+    public MyAdapter(List<User> myDataset, Context context, OttoFragmentList.CallbackToFragmentList callbackToFragmentList) {
         mDataset = myDataset;
         this.context = context;
         adaptersManager = new AdapterDelegatesManager<>();
         adaptersManager.addDelegate(new User1Adapter(context), User.USER_TYPE_1);
         adaptersManager.addDelegate(new User2Adapter(context), User.USER_TYPE_2);
         adaptersManager.addDelegate(new User3Adapter(context), User.USER_TYPE_3);
+        this.callbackToFragmentList = callbackToFragmentList;
     }
+
 
     @Override
     public int getItemViewType(int position) {
-        return adaptersManager.getItemViewType(mDataset,position);
+        return adaptersManager.getItemViewType(mDataset, position);
     }
 
     public void removeAllData() {
@@ -59,6 +69,13 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User user = mDataset.get(position);
+                callbackToFragmentList.openItemDetail(user);
+            }
+        });
         adaptersManager.onBindViewHolder(mDataset, position, holder);
     }
 

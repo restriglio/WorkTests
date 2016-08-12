@@ -51,13 +51,13 @@ public class ListActivity extends Activity {
         myDataset = (ArrayList<User>) getIntent().getSerializableExtra(EXTRA_KEY);
         myDataset.addAll(UserProvider.GetData());
 
-        mAdapter = new MyAdapter(myDataset, getApplicationContext());
+        /*mAdapter = new MyAdapter(myDataset, getApplicationContext());
         itemDecoration = DaggerDividerItemDecorationComponent
                 .builder().dividerItemDecorationModule(new DividerItemDecorationModule(getApplicationContext()))
                 .build().dividerItemDecoration();
 
         mRecyclerView.addItemDecoration(itemDecoration);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);*/
     }
 
 }

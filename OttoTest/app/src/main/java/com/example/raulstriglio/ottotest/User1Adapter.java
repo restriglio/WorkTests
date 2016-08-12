@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.raulstriglio.ottotest.AdapterUtils.AdapterDelegate;
+import com.example.raulstriglio.ottotest.Fragments.OttoFragmentList;
 import com.example.raulstriglio.ottotest.model.User;
 import com.squareup.picasso.Picasso;
 
@@ -34,7 +35,8 @@ public class User1Adapter implements AdapterDelegate<List<User>> {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
         return new User1ViewHolder(v);
     }
@@ -46,13 +48,6 @@ public class User1Adapter implements AdapterDelegate<List<User>> {
         User user = items.get(position);
 
         u1Holder.txtHeader.setText(user.getLastname());
-        u1Holder.txtHeader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         u1Holder.txtFooter.setText(String.format(context.getResources().getString(R.string.name_listItem), user.getName(), user.getLastname()));
         Picasso.with(context).load(IMAGE_PATH).placeholder(R.mipmap.ic_launcher)
                 .into(u1Holder.icon, new com.squareup.picasso.Callback() {

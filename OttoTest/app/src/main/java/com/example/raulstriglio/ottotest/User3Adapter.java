@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.raulstriglio.ottotest.AdapterUtils.AdapterDelegate;
+import com.example.raulstriglio.ottotest.Fragments.OttoFragmentList;
 import com.example.raulstriglio.ottotest.Utilities.CircleTransform;
 import com.example.raulstriglio.ottotest.model.User;
 import com.squareup.picasso.Picasso;
@@ -37,7 +38,7 @@ public class User3Adapter implements AdapterDelegate<List<User>> {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item3, parent, false);
         return new User3ViewHolder(v);
     }

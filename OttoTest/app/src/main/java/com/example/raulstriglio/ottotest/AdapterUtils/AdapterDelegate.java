@@ -2,7 +2,11 @@ package com.example.raulstriglio.ottotest.AdapterUtils;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.raulstriglio.ottotest.Fragments.OttoFragmentList;
+import com.example.raulstriglio.ottotest.model.User;
 
 /**
  * Created by raul.striglio on 04/08/16.
@@ -26,7 +30,7 @@ public interface AdapterDelegate<T> {
      * @return The new instantiated {@link RecyclerView.ViewHolder}
      */
     @NonNull
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType);
 
     /**
      * Called to bind the {@link RecyclerView.ViewHolder} to the item of the datas source set
