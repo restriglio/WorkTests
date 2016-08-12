@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    style="@style/RelativeLayoutStyle3">
+
+    <ImageView
+        android:layout_width="@dimen/list_image_size"
+        android:layout_height="@dimen/list_image_size"
+        android:id="@+id/iconImage"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/list_image_margin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/name"
+        android:textColor="@color/colorWhite"
+        android:layout_above="@+id/lastName"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginLeft="5dp"
+        android:textSize="@dimen/text_size_normal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/lastName"
+        android:textColor="@color/colorWhite"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginLeft="5dp"
+        android:textSize="@dimen/text_size_normal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/name_label"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/iconImage"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentLeft="false"
+        android:layout_marginLeft="@dimen/margin_five" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/lastname_label"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:layout_marginLeft="5dp" />
+
+</RelativeLayout>

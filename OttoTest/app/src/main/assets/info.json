@@ -1,0 +1,112 @@
+[
+  {
+    "name" : "Ross",
+    "lastname" : "Geller",
+    "age" : 51,
+    "type": 1
+  },
+  {
+    "name" : "Joey",
+    "lastname" : "Tribiani",
+    "age" : 51,
+    "type": 2
+  },
+  {
+    "name" : "Eddie",
+    "lastname" : "Vedder",
+    "age" : 51,
+    "type": 1
+  },
+  {
+    "name" : "Omar",
+    "lastname" : "Rodríguez-López",
+    "age" : 40,
+    "type": 1
+  },
+  {
+    "name" : "James",
+    "lastname" : "Hetfield",
+    "age" : 50,
+    "type": 0
+  },
+  {
+    "name" : "Jimmy",
+    "lastname" : "Page",
+    "age" : 23,
+    "type": 1
+  },
+  {
+    "name" : "Rulo",
+    "lastname" : "Snow",
+    "age" : 33,
+    "type": 2
+  },
+  {
+    "name" : "Jimmy",
+    "lastname" : "Snow",
+    "age" : 45,
+    "type": 0
+  },
+  {
+    "name" : "Cuqui",
+    "lastname" : "Page",
+    "age" : 14,
+    "type": 1
+  },
+  {
+    "name" : "Robert",
+    "lastname" : "Pires",
+    "age" : 34,
+    "type": 2
+  },
+  {
+    "name" : "James",
+    "lastname" : "Rodriguez",
+    "age" : 23,
+    "type": 0
+  },
+  {
+    "name" : "Kun",
+    "lastname" : "Aguero",
+    "age" : 70,
+    "type": 1
+  },
+  {
+    "name" : "Lio",
+    "lastname" : "Messi",
+    "age" : 28,
+    "type": 0
+  },
+  {
+    "name" : "Tierry",
+    "lastname" : "Henry",
+    "age" : 29,
+    "type": 1
+  },
+  {
+    "name" : "Julia",
+    "lastname" : "Funn",
+    "age" : 16,
+    "type": 2
+  },
+  {
+    "name" : "Carlitos",
+    "lastname" : "elRey",
+    "age" : 65,
+    "type": 1
+  },
+  {
+    "name" : "Name",
+    "lastname" : "lName",
+    "age" : 15,
+    "type": 2
+  },
+  {
+    "name" : "Tom",
+    "lastname" : "Misaki",
+    "age" : 16,
+    "type": 1
+  }
+
+
+]

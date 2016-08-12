@@ -1,10 +1,16 @@
 package com.example.raulstriglio.ottotest;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class OttoMainActivity extends AppCompatActivity {
+import com.example.raulstriglio.ottotest.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OttoMainActivity extends AppCompatActivity implements OttoFragment.ICallback {
 
     OttoFragment ottoFragment = new OttoFragment();
 
@@ -14,10 +20,16 @@ public class OttoMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otto_main);
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.add(R.id.FrameID,ottoFragment);
+        ft.add(R.id.FrameID, ottoFragment);
         ft.addToBackStack(null);
         ft.commit();
 
     }
 
+    @Override
+    public void initListActivity(ArrayList<User> userList) {
+        Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+        intent.putExtra(ListActivity.EXTRA_KEY, userList);
+        startActivity(intent);
+    }
 }

@@ -8,4 +8,32 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+    <style name="ListView_item" parent="@android:style/Widget.ListView">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
+    <style name="RelativeLayoutStyle1" parent="@android:style/Widget">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/relativeColor1</item>
+    </style>
+
+    <style name="RelativeLayoutStyle2" parent="@android:style/Widget">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/relativeColor2</item>
+    </style>
+
+    <style name="RelativeLayoutStyle3" parent="@android:style/Widget">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/relativeColor3</item>
+    </style>
+
 </resources>
