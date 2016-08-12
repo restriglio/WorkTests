@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.raulstriglio.R;
 import com.example.raulstriglio.ottotest.API.MyApi;
 import com.example.raulstriglio.ottotest.Events.CustomUserEvent;
 import com.example.raulstriglio.ottotest.OttoTestApplication;
+import com.example.raulstriglio.ottotest.R;
 import com.example.raulstriglio.ottotest.Utilities.MyBus;
 import com.example.raulstriglio.ottotest.model.User;
 import com.squareup.otto.Subscribe;

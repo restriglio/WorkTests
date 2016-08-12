@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.raulstriglio.R;
 import com.example.raulstriglio.ottotest.MyAdapter;
+import com.example.raulstriglio.ottotest.R;
 import com.example.raulstriglio.ottotest.Utilities.DaggerDividerItemDecorationComponent;
 import com.example.raulstriglio.ottotest.Utilities.DividerItemDecorationModule;
 import com.example.raulstriglio.ottotest.model.User;

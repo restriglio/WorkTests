@@ -18,10 +18,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private AdapterDelegatesManager<List<User>> adaptersManager;
     private List<User> mDataset;
     private Context context;
-<<<<<<< Updated upstream
-=======
+
     OttoFragmentList.CallbackToFragmentList callbackToFragmentList;
->>>>>>> Stashed changes
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public MyAdapter(List<User> myDataset, Context context, OttoFragmentList.CallbackToFragmentList callbackToFragmentList) {

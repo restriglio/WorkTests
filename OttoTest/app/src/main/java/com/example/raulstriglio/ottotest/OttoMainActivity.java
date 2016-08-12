@@ -6,13 +6,10 @@ import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-<<<<<<< Updated upstream
-=======
-import com.example.raulstriglio.R;
 import com.example.raulstriglio.ottotest.Fragments.DetailFragment;
 import com.example.raulstriglio.ottotest.Fragments.OttoFragment;
 import com.example.raulstriglio.ottotest.Fragments.OttoFragmentList;
->>>>>>> Stashed changes
+
 import com.example.raulstriglio.ottotest.model.User;
 
 import java.util.ArrayList;

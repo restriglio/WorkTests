@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.raulstriglio.R;
 import com.example.raulstriglio.ottotest.OttoMainActivity;
+import com.example.raulstriglio.ottotest.R;
 
 /**
  * Created by raul.striglio on 12/08/16.
