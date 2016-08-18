@@ -6,9 +6,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.raulstriglio.ottotest.AdapterUtils.AdapterDelegate;
 import com.example.raulstriglio.ottotest.AdapterUtils.AdapterDelegatesManager;
 import com.example.raulstriglio.ottotest.Fragments.OttoFragmentList;
 import com.example.raulstriglio.ottotest.model.User;
@@ -19,10 +17,10 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<User> mDataset;
     private Context context;
 
-    OttoFragmentList.CallbackToFragmentList callbackToFragmentList;
+    OttoFragmentList.callbackToFragmentList callbackToFragmentList;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<User> myDataset, Context context, OttoFragmentList.CallbackToFragmentList callbackToFragmentList) {
+    public MyAdapter(List<User> myDataset, Context context, OttoFragmentList.callbackToFragmentList callbackToFragmentList) {
         mDataset = myDataset;
         this.context = context;
         adaptersManager = new AdapterDelegatesManager<>();

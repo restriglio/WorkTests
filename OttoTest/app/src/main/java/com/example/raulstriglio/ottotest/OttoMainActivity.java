@@ -14,7 +14,7 @@ import com.example.raulstriglio.ottotest.model.User;
 
 import java.util.ArrayList;
 
-public class OttoMainActivity extends AppCompatActivity implements OttoFragment.ICallback<User>, OttoFragmentList.CallbackToFragmentList {
+public class OttoMainActivity extends AppCompatActivity implements OttoFragment.ICallback<User>, OttoFragmentList.callbackToFragmentList {
 
     public static final String EXTRA_KEY = "userList";
 
@@ -37,7 +37,7 @@ public class OttoMainActivity extends AppCompatActivity implements OttoFragment.
     }
 
     @Override
-    public void initListActivity(ArrayList<User> userList) {
+    public void initList(ArrayList<User> userList) {
 
         this.userList = userList;
         OttoFragmentList ottoListFragment = new OttoFragmentList();

@@ -98,7 +98,7 @@ public class OttoFragment extends Fragment {
                 idLastname.setText(getString(R.string.empty_item));
             }
         }
-        ((ICallback) getActivity()).initListActivity(event.getUsers());
+        ((ICallback) getActivity()).initList(event.getUsers());
     }
 
     @Override
@@ -108,7 +108,7 @@ public class OttoFragment extends Fragment {
     }
 
     public interface ICallback<T> {
-        void initListActivity(ArrayList<T> userList);
+        void initList(ArrayList<T> userList);
         ArrayList<T> getList();
     }
 }

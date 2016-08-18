@@ -27,7 +27,7 @@ import javax.inject.Inject;
 public class OttoFragmentList extends Fragment {
 
     public final String TAG = "OttoFragmentList";
-    View fragmentView;
+    private View fragmentView;
 
     public static final String EXTRA_KEY = "userList";
     private RecyclerView mRecyclerView;
@@ -58,15 +58,15 @@ public class OttoFragmentList extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if(!(getActivity() instanceof CallbackToFragmentList)){
+        if(!(getActivity() instanceof callbackToFragmentList)){
             throw new ClassCastException(getActivity().toString()
-                    + "must implement CallbackToFragmentList");
+                    + "must implement callbackToFragmentList");
         }
 
         myDataset = ((OttoFragment.ICallback<User>)getActivity()).getList();
         myDataset.addAll(UserProvider.GetData());
 
-        listAdapter = new MyAdapter(myDataset, getContext(),(CallbackToFragmentList)getActivity());
+        listAdapter = new MyAdapter(myDataset, getContext(),(callbackToFragmentList)getActivity());
         itemDecoration = DaggerDividerItemDecorationComponent
                 .builder().dividerItemDecorationModule(new DividerItemDecorationModule(getContext()))
                 .build().dividerItemDecoration();
@@ -75,7 +75,7 @@ public class OttoFragmentList extends Fragment {
         mRecyclerView.setAdapter(listAdapter);
     }
 
-    public interface CallbackToFragmentList{
+    public interface callbackToFragmentList {
         void openItemDetail(User user);
     }
 }

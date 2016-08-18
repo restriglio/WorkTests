@@ -20,7 +20,7 @@ public class DetailFragment extends Fragment {
 
     private View detailFragment;
     private TextView lastNameTxt;
-    private TextView NameTxt;
+    private TextView nameTxt;
 
     @Nullable
     @Override
@@ -28,7 +28,7 @@ public class DetailFragment extends Fragment {
 
         detailFragment = inflater.inflate(R.layout.detail_fragment_layout,container,false);
         lastNameTxt = (TextView)detailFragment.findViewById(R.id.lastNameTxt);
-        NameTxt = (TextView)detailFragment.findViewById(R.id.nameTxt);
+        nameTxt = (TextView)detailFragment.findViewById(R.id.nameTxt);
         return detailFragment;
     }
 
@@ -36,6 +36,9 @@ public class DetailFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Bundle bundle = getArguments();
-        this.lastNameTxt.setText(bundle.get(OttoMainActivity.LAST_NAME_KEY).toString());
-        this.NameTxt.setText(bundle.get(OttoMainActivity.NAME_KEY).toString());}
+        if (bundle != null) {
+            this.lastNameTxt.setText(bundle.get(OttoMainActivity.LAST_NAME_KEY).toString());
+            this.nameTxt.setText(bundle.get(OttoMainActivity.NAME_KEY).toString());
+        }
+    }
 }

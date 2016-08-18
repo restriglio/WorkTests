@@ -62,7 +62,7 @@ public class AdapterDelegatesManager<T> {
 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         AdapterDelegate<T> delegate = listDelegates.get(viewType);
-        return delegate.onCreateViewHolder(parent,viewType);
+        return delegate.onCreateViewHolder(parent, viewType);
     }
 
     public void onBindViewHolder(@NonNull T items, int position, @NonNull RecyclerView.ViewHolder viewHolder) {
