@@ -1,4 +1,4 @@
-package com.example.raulstriglio.ottotest;
+package com.example.raulstriglio.ottotest.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,9 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.raulstriglio.ottotest.API.MyApi;
 import com.example.raulstriglio.ottotest.Events.CustomUserEvent;
+import com.example.raulstriglio.ottotest.OttoTestApplication;
+import com.example.raulstriglio.ottotest.R;
 import com.example.raulstriglio.ottotest.Utilities.MyBus;
 import com.example.raulstriglio.ottotest.model.User;
 import com.squareup.otto.Subscribe;
@@ -22,7 +25,9 @@ import javax.inject.Inject;
 /**
  * Created by raul.striglio on 28/07/16.
  */
-public class OttoFragment extends Fragment {
+public class OttoFragment extends BaseFragment {
+
+    public final String TAG = "OttoFragment";
 
     private final String URL = "https://raw.githubusercontent.com/restriglio/OttoTest/master/json/info.json";
     private View fragmentView;
@@ -32,6 +37,11 @@ public class OttoFragment extends Fragment {
     MyApi myApi;
     private TextView idName;
     private TextView idLastname;
+
+    public static OttoFragment newInstance(){
+        OttoFragment ottoFragment = new OttoFragment();
+        return ottoFragment;
+    }
 
     @Nullable
     @Override
@@ -73,6 +83,11 @@ public class OttoFragment extends Fragment {
     }
 
     @Subscribe
+    public void recieveData2(CustomUserEvent event) {
+        Toast.makeText(getContext(), R.string.app_name, Toast.LENGTH_SHORT).show();
+    }
+
+    @Subscribe
     public void receiveData(CustomUserEvent event) {
 
         if (event.getUsers() != null) {
@@ -88,7 +103,7 @@ public class OttoFragment extends Fragment {
                 idLastname.setText(getString(R.string.empty_item));
             }
         }
-        ((ICallback) getActivity()).initListActivity(event.getUsers());
+        ((ICallback) getActivity()).initList(event.getUsers());
     }
 
     @Override
@@ -97,7 +112,9 @@ public class OttoFragment extends Fragment {
         MyBus.getBus().unregister(this);
     }
 
-    public interface ICallback {
-        void initListActivity(ArrayList<User> userList);
+    public interface ICallback<T> {
+        void initList(ArrayList<T> userList);
+
+        ArrayList<T> getList();
     }
 }

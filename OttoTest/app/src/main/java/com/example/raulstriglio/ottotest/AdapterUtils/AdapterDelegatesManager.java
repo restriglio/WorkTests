@@ -3,8 +3,12 @@ package com.example.raulstriglio.ottotest.AdapterUtils;
 import android.support.annotation.NonNull;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.raulstriglio.ottotest.Fragments.OttoFragmentList;
 import com.example.raulstriglio.ottotest.model.User;
 
 
@@ -58,7 +62,7 @@ public class AdapterDelegatesManager<T> {
 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         AdapterDelegate<T> delegate = listDelegates.get(viewType);
-        return delegate.onCreateViewHolder(parent);
+        return delegate.onCreateViewHolder(parent, viewType);
     }
 
     public void onBindViewHolder(@NonNull T items, int position, @NonNull RecyclerView.ViewHolder viewHolder) {
