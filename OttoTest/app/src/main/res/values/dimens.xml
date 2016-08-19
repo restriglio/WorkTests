@@ -11,4 +11,7 @@
     <dimen name="text_size_normal">22sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
 
+    <dimen name="frame_layout_h">250dp</dimen>
+    <dimen name="frame_layout_w">180dp</dimen>
+
 </resources>

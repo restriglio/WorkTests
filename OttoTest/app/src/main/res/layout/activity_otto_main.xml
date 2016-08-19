@@ -11,8 +11,8 @@
     tools:context="com.example.raulstriglio.ottotest.OttoMainActivity">
 
     <FrameLayout
-        android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/frame_layout_h"
         android:id="@+id/FrameID"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
@@ -20,8 +20,8 @@
     </FrameLayout>
 
     <FrameLayout
-        android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/frame_layout_h"
         android:id="@+id/FrameID2"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"

@@ -24,7 +24,7 @@ import javax.inject.Inject;
 /**
  * Created by raul.striglio on 12/08/16.
  */
-public class OttoFragmentList extends Fragment {
+public class OttoFragmentList extends BaseFragment {
 
     public final String TAG = "OttoFragmentList";
     private View fragmentView;
@@ -37,10 +37,21 @@ public class OttoFragmentList extends Fragment {
     @Inject
     protected RecyclerView.ItemDecoration itemDecoration;
 
+    public static OttoFragmentList newInstance() {
+        OttoFragmentList ottoFragmentList = new OttoFragmentList();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(EXTRA_KEY, "From Activity");
+        ottoFragmentList.setArguments(bundle);
+
+        return ottoFragmentList;
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fragmentView = inflater.inflate(R.layout.detail_list,container,false);
+        fragmentView = inflater.inflate(R.layout.detail_list, container, false);
 
         mRecyclerView = (RecyclerView) fragmentView.findViewById(R.id.my_recycler_view);
 
@@ -58,15 +69,15 @@ public class OttoFragmentList extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if(!(getActivity() instanceof callbackToFragmentList)){
+        if (!(getActivity() instanceof callbackToFragmentList)) {
             throw new ClassCastException(getActivity().toString()
                     + "must implement callbackToFragmentList");
         }
 
-        myDataset = ((OttoFragment.ICallback<User>)getActivity()).getList();
+        myDataset = ((OttoFragment.ICallback<User>) getActivity()).getList();
         myDataset.addAll(UserProvider.GetData());
 
-        listAdapter = new MyAdapter(myDataset, getContext(),(callbackToFragmentList)getActivity());
+        listAdapter = new MyAdapter(myDataset, getContext(), (callbackToFragmentList) getActivity());
         itemDecoration = DaggerDividerItemDecorationComponent
                 .builder().dividerItemDecorationModule(new DividerItemDecorationModule(getContext()))
                 .build().dividerItemDecoration();

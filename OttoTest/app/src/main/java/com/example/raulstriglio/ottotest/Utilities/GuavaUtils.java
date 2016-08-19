@@ -31,7 +31,7 @@ public class GuavaUtils {
             = new Function<User, Person>() {
 
         public Person apply(User t) {
-            Person person = new Person(t.getName(),t.getLastname(),t.getAge(),1);
+            Person person = new Person(t.getName(), t.getLastname(), t.getAge(), 1);
             return person;
         }
     };
@@ -63,7 +63,7 @@ public class GuavaUtils {
                 .transform(userToPerson);
 
         List<Person> personList = new ArrayList<>(iterable.toList());
-        Person p = new Person("",null,1,1);
+        Person p = new Person("", null, 1, 1);
         personList.add(p);
         Collections.sort(personList);
 
@@ -71,7 +71,7 @@ public class GuavaUtils {
     }
 
     public SetMultimap<String, List<User>> getUserMapByName(List<Person> listPerson, List<User> listUser) {
-        SetMultimap <String, List<User>> result = HashMultimap.create();
+        SetMultimap<String, List<User>> result = HashMultimap.create();
 
         for (final Person p : listPerson) {
             List<User> filteredUser = FluentIterable.from(listUser).filter(new Predicate<User>() {

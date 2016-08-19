@@ -25,7 +25,7 @@ import javax.inject.Inject;
 /**
  * Created by raul.striglio on 28/07/16.
  */
-public class OttoFragment extends Fragment {
+public class OttoFragment extends BaseFragment {
 
     public final String TAG = "OttoFragment";
 
@@ -37,6 +37,11 @@ public class OttoFragment extends Fragment {
     MyApi myApi;
     private TextView idName;
     private TextView idLastname;
+
+    public static OttoFragment newInstance(){
+        OttoFragment ottoFragment = new OttoFragment();
+        return ottoFragment;
+    }
 
     @Nullable
     @Override
@@ -78,8 +83,8 @@ public class OttoFragment extends Fragment {
     }
 
     @Subscribe
-    public void recieveData2(CustomUserEvent event){
-        Toast.makeText(getContext(),R.string.app_name,Toast.LENGTH_SHORT).show();
+    public void recieveData2(CustomUserEvent event) {
+        Toast.makeText(getContext(), R.string.app_name, Toast.LENGTH_SHORT).show();
     }
 
     @Subscribe
@@ -109,6 +114,7 @@ public class OttoFragment extends Fragment {
 
     public interface ICallback<T> {
         void initList(ArrayList<T> userList);
+
         ArrayList<T> getList();
     }
 }
